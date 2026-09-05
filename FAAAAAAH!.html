@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Arpit Test 💀</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #7c3aed,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #06b6d4,
+            transparent 30%
+        ),
+        #07070d;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.glow {
+    position: fixed;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+    filter: blur(10px);
+
+    animation: float 6s infinite ease-in-out;
+
+    z-index: -1;
+}
+
+.glow1 {
+    top: 5%;
+    left: 5%;
+}
+
+.glow2 {
+    bottom: 5%;
+    right: 5%;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card {
+
+    width: min(92%, 650px);
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.emoji {
+
+    font-size: 60px;
+
+    margin-bottom: 15px;
+
+    animation:
+        bounce 1.5s infinite;
+}
+
+h1 {
+
+    font-size:
+        clamp(32px, 8vw, 58px);
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+}
+
+.gradient {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4ecd,
+            #8b5cf6,
+            #00e5ff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.subtitle {
+
+    margin-top: 15px;
+
+    margin-bottom: 35px;
+
+    color: #999;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+#question {
+
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size:
+        clamp(21px, 5vw, 30px);
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   BUTTON AREA
+========================= */
+
+.buttons {
+
+    height: 80px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+button {
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+/* YES */
+
+#yes {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(139,92,246,0.4);
+}
+
+#yes:hover {
+
+    transform: scale(1.08);
+}
+
+
+/* NO */
+
+#no {
+
+    background: #20202a;
+
+    color: white;
+
+    position: relative;
+}
+
+#no:hover {
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+#progress {
+
+    margin-top: 25px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+#toast {
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(-120px);
+
+    background: #15151d;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    padding: 13px 20px;
+
+    border-radius: 100px;
+
+    font-size: 13px;
+
+    transition: 0.4s;
+
+    z-index: 9999;
+
+    white-space: nowrap;
+}
+
+#toast.show {
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+#result {
+
+    display: none;
+}
+
+#result h2 {
+
+    font-size:
+        clamp(35px, 8vw, 55px);
+
+    margin-bottom: 15px;
+}
+
+#result p {
+
+    color: #aaa;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.restart {
+
+    background: white;
+
+    color: black;
+}
+
+.restart:hover {
+
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .card {
+
+        padding:
+            35px 20px;
+    }
+
+    .buttons {
+
+        gap: 10px;
+    }
+
+    button {
+
+        padding:
+            13px 24px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+
+<!-- TOAST -->
+
+<div id="toast">
+    NICE TRY 💀
+</div>
+
+
+<!-- MAIN CARD -->
+
+<div class="card">
+
+
+    <!-- =====================
+         QUIZ
+    ====================== -->
+
+    <div id="quiz">
+
+        <div class="emoji">
+            🗿
+        </div>
+
+
+        <h1>
+            THE
+            <span class="gradient">
+                ARPIT
+            </span>
+            TEST
+        </h1>
+
+
+        <p class="subtitle">
+            Answer honestly.<br>
+            There are absolutely no consequences. 👀
+        </p>
+
+
+        <div id="question">
+            Loading...
+        </div>
+
+
+        <div class="buttons">
+
+            <button id="yes">
+                YES 😎
+            </button>
+
+            <button id="no">
+                NO 💀
+            </button>
+
+        </div>
+
+
+        <div id="progress">
+            Question 1 / 5
+        </div>
+
+    </div>
+
+
+    <!-- =====================
+         RESULT
+    ====================== -->
+
+    <div id="result">
+
+        <div class="emoji">
+            🏆
+        </div>
+
+
+        <h2>
+            YOU SURVIVED.
+        </h2>
+
+
+        <p id="finalText">
+        </p>
+
+
+        <button
+            class="restart"
+            onclick="restart()">
+
+            TAKE IT AGAIN 🔄
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =====================================
+   QUESTIONS
+===================================== */
+
+const questions = [
+
+    "Do you like Arpit? 👀",
+
+    "Do you secretly have a crush on Arpit? 💀",
+
+    "Is Arpit cool asf? 😎",
+
+    "Are you gay? 🌈",
+
+    "Is Arpit's Spotify playlist better than yours?? 🎧"
+
+];
+
+
+let current = 0;
+
+let noAttempts = 0;
+
+let yesAttempts = 0;
+
+
+/* =====================================
+   ELEMENTS
+===================================== */
+
+const question =
+    document.getElementById("question");
+
+const yes =
+    document.getElementById("yes");
+
+const no =
+    document.getElementById("no");
+
+const progress =
+    document.getElementById("progress");
+
+const toast =
+    document.getElementById("toast");
+
+
+/* =====================================
+   LOAD QUESTION
+===================================== */
+
+function loadQuestion() {
+
+    question.innerText =
+        questions[current];
+
+
+    progress.innerText =
+        "Question " +
+        (current + 1) +
+        " / " +
+        questions.length;
+
+
+    /*
+    Put buttons back
+    */
+
+    yes.style.position = "relative";
+
+    yes.style.left = "auto";
+
+    yes.style.top = "auto";
+
+    yes.style.transform = "none";
+
+
+    no.style.position = "relative";
+
+    no.style.left = "auto";
+
+    no.style.top = "auto";
+
+    no.style.transform = "none";
+}
+
+
+/* =====================================
+   YES BUTTON
+===================================== */
+
+yes.addEventListener(
+    "click",
+    function() {
+
+        /*
+        Question 5:
+        YES runs away.
+        */
+
+        if (current === 4) {
+
+            escapeYes();
+
+            return;
+        }
+
+
+        /*
+        Questions 1-4:
+        YES moves forward.
+        */
+
+        current++;
+
+
+        if (current >= questions.length) {
+
+            finish();
+
+        } else {
+
+            loadQuestion();
+
+        }
+
+    }
+);
+
+
+/* =====================================
+   NO BUTTON
+===================================== */
+
+no.addEventListener(
+    "click",
+    function() {
+
+        /*
+        Question 5:
+        NO is clickable.
+        */
+
+        if (current === 4) {
+
+            current++;
+
+            finish();
+
+            return;
+        }
+
+
+        /*
+        Questions 1-4:
+        NO escapes.
+        */
+
+        escapeNo();
+
+    }
+);
+
+
+/* =====================================
+   ESCAPE NO
+===================================== */
+
+function escapeNo() {
+
+    noAttempts++;
+
+
+    const messages = [
+
+        "NICE TRY 💀",
+
+        "BRO REALLY SAID NO 😭",
+
+        "THE NO BUTTON HAS LEFT THE CHAT 🏃",
+
+        "NOPE. NOT ALLOWED.",
+
+        "JUST CLICK YES BRO 😭",
+
+        "WHY ARE YOU STILL TRYING 💀",
+
+        "ARPIT SAID NO TO YOUR NO."
+
+    ];
+
+
+    showToast(
+        messages[
+            Math.min(
+                noAttempts - 1,
+                messages.length - 1
+            )
+        ]
+    );
+
+
+    moveButton(no);
+}
+
+
+/* =====================================
+   ESCAPE YES
+===================================== */
+
+function escapeYes() {
+
+    yesAttempts++;
+
+
+    const messages = [
+
+        "WAIT... YOU SAID YES TO THE SPOTIFY QUESTION? 💀",
+
+        "THE YES BUTTON IS RUNNING 😭",
+
+        "ARPIT'S PLAYLIST IS TOO POWERFUL 🎧",
+
+        "YOU CANNOT HANDLE THE VIBES 🏃",
+
+        "YES HAS LEFT THE CHAT 💀",
+
+        "THE PLAYLIST DEFENDS ITSELF."
+
+    ];
+
+
+    showToast(
+        messages[
+            Math.min(
+                yesAttempts - 1,
+                messages.length - 1
+            )
+        ]
+    );
+
+
+    moveButton(yes);
+}
+
+
+/* =====================================
+   MOVE BUTTON
+===================================== */
+
+function moveButton(button) {
+
+    const padding = 20;
+
+
+    const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        padding;
+
+
+    const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        padding;
+
+
+    const x =
+        Math.random() * maxX;
+
+
+    const y =
+        Math.random() * maxY;
+
+
+    button.style.position = "fixed";
+
+
+    button.style.left =
+        Math.max(x, padding) +
+        "px";
+
+
+    button.style.top =
+        Math.max(y, padding) +
+        "px";
+
+
+    const rotation =
+        Math.random() * 40 - 20;
+
+
+    button.style.transform =
+        `rotate(${rotation}deg)`;
+}
+
+
+/* =====================================
+   DESKTOP MOUSE
+===================================== */
+
+
+/*
+Questions 1-4:
+NO runs away.
+*/
+
+no.addEventListener(
+    "mouseenter",
+    function() {
+
+        if (current !== 4) {
+
+            escapeNo();
+
+        }
+
+    }
+);
+
+
+/*
+Question 5:
+YES runs away.
+*/
+
+yes.addEventListener(
+    "mouseenter",
+    function() {
+
+        if (current === 4) {
+
+            escapeYes();
+
+        }
+
+    }
+);
+
+
+/* =====================================
+   MOBILE TOUCH
+===================================== */
+
+no.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (current !== 4) {
+
+            event.preventDefault();
+
+            escapeNo();
+
+        }
+
+    }
+);
+
+
+yes.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (current === 4) {
+
+            event.preventDefault();
+
+            escapeYes();
+
+        }
+
+    }
+);
+
+
+/* =====================================
+   TOAST
+===================================== */
+
+function showToast(message) {
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(
+        function() {
+
+            toast.classList.remove("show");
+
+        },
+        1200
+    );
+}
+
+
+/* =====================================
+   FINISH
+===================================== */
+
+function finish() {
+
+    document.getElementById("quiz")
+        .style.display = "none";
+
+
+    document.getElementById("result")
+        .style.display = "block";
+
+
+    let message;
+
+
+    if (yesAttempts > 0) {
+
+        message =
+            "YOU FOUGHT THE SPOTIFY BUTTON. 💀" +
+            "<br><br>" +
+
+            "You tried to click YES " +
+            yesAttempts +
+            " time(s)." +
+
+            "<br><br>" +
+
+            "But Arpit's playlist remains undefeated. 🎧";
+
+    }
+
+    else if (noAttempts === 0) {
+
+        message =
+            "ZERO ATTEMPTS AT PRESSING NO. 🫡" +
+            "<br><br>" +
+
+            "You clearly respect Arpit." +
+            "<br><br>" +
+
+            "And apparently his Spotify playlist too. 🎧";
+
+    }
+
+    else {
+
+        message =
+            "You tried to press NO " +
+            noAttempts +
+            " time(s). 😭" +
+
+            "<br><br>" +
+
+            "The button was faster than you.";
+
+    }
+
+
+    document.getElementById("finalText")
+        .innerHTML = message;
+}
+
+
+/* =====================================
+   RESTART
+===================================== */
+
+function restart() {
+
+    current = 0;
+
+    noAttempts = 0;
+
+    yesAttempts = 0;
+
+
+    document.getElementById("result")
+        .style.display = "none";
+
+
+    document.getElementById("quiz")
+        .style.display = "block";
+
+
+    loadQuestion();
+}
+
+
+/* =====================================
+   START QUIZ
+===================================== */
+
+loadQuestion();
+
+
+</script>
+
+</body>
+
+</html>
